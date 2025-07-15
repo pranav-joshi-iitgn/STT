@@ -1,0 +1,10 @@
+45             self.assert_equal(flask.current_app._get_current_object(), app)
+46         self.assert_equal(flask._app_ctx_stack.top, None)
+47 
+48     def test_app_context_provides_current_app(self):
+49         app = flask.Flask(__name__)
+50         with app.app_context():
+51             self.assert_equal(flask.current_app._get_current_object(), app)
+52         self.assert_equal(flask._app_ctx_stack.top, None)
+53 
+54     def test_app_tearing_down(self):

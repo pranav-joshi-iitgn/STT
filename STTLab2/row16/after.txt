@@ -1,0 +1,15 @@
+37         assert sorted(rv.allow) == ['GET', 'HEAD', 'OPTIONS', 'POST']
+38         assert rv.data == b''
+39 
+40     def test_options_on_multiple_rules(self):
+41         app = flask.Flask(__name__)
+42         @app.route('/', methods=['GET', 'POST'])
+43         def index():
+44             return 'Hello World'
+45         @app.route('/', methods=['PUT'])
+46         def index_put():
+47             return 'Aha!'
+48         rv = app.test_client().open('/', method='OPTIONS')
+49         assert sorted(rv.allow) == ['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT']
+50 
+51     def test_options_handling_disabled(self):

@@ -1,0 +1,10 @@
+257 except ImportError, e:
+258     print '-' * 74
+259     print 'Warning: Flask themes unavailable.  Building with default theme'
+260     print 'If you want the Flask themes, run this command and build again:'
+261     print
+262     print '  git submodule update --init'
+263     print '-' * 74
+264 
+265     pygments_style = 'tango'
+266     html_theme = 'default'

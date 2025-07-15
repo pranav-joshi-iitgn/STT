@@ -1,0 +1,51 @@
+Bug type,Commit Message,File Path,Fixed Commit,Better,Reason
+fix typo in conf.py,Fixed command,docs/conf.py,2b103134cf165ba453d5492e1a73b57b1e5bef1e,BOTH,"LLM's message is more descriptive, but the commit message is specific and precise, muchbetter for an intelligent reader,like another developer"
+fix test_config.py for python 2.5,Some fixes,tests/test_config.py,df711eac90223db990eae05a60ee1f6b403443e1,NONE,"The commit message is too vague, but LLM's output is factually incorrect"
+fix test_config.py for python 2.5,Some fixes,tests/test_config.py,df711eac90223db990eae05a60ee1f6b403443e1,NONE,"The commit message is too vague, but LLM's output is factually incorrect"
+fix test_config.py for python 2.5,Some fixes,tests/test_config.py,df711eac90223db990eae05a60ee1f6b403443e1,NONE,"The commit message is too vague, but LLM's output is factually incorrect"
+update test_appctx.py to use pytest 2.x,Rewrite assertion methods,tests/test_appctx.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,pytest was already in use. It's imported here as a concequence of the actual change
+update test_appctx.py to use pytest 2.x,Rewrite assertion methods,tests/test_appctx.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,pytest was already in use. It's imported here as a concequence of the actual change
+update test_appctx.py to use pytest 2.x,Rewrite assertion methods,tests/test_appctx.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,pytest was already in use. It's imported here as a concequence of the actual change
+update test_appctx.py to use pytest 2.x,Rewrite assertion methods,tests/test_appctx.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,pytest was already in use. It's imported here as a concequence of the actual change
+update test_appctx.py to use pytest 2.x,Rewrite assertion methods,tests/test_appctx.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,pytest was already in use. It's imported here as a concequence of the actual change
+update test_appctx.py to use pytest 2.x,Rewrite assertion methods,tests/test_appctx.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,pytest was already in use. It's imported here as a concequence of the actual change
+update test_appctx.py to use pytest 2.x,Rewrite assertion methods,tests/test_appctx.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,pytest was already in use. It's imported here as a concequence of the actual change
+update test_appctx.py to use pytest 2.x,Rewrite assertion methods,tests/test_appctx.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,pytest was already in use. It's imported here as a concequence of the actual change
+update test_appctx.py to use pytest 2.x,Rewrite assertion methods,tests/test_appctx.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,pytest was already in use. It's imported here as a concequence of the actual change
+update test_appctx.py to use pytest 2.x,Rewrite assertion methods,tests/test_appctx.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,pytest was already in use. It's imported here as a concequence of the actual change
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there
+use assert_equal and assert_equal_equal,Rewrite assertion methods,tests/test_basic.py,5da2c00419d09ce2d3488263036ffd14563fb05a,DEV,assert_equal_equal is not there

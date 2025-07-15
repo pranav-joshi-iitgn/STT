@@ -1,0 +1,21 @@
+48         rv = app.test_client().open('/', method='OPTIONS')
+49         assert sorted(rv.allow) == ['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT']
+50 
+51     def test_options_handling_disabled(self):
+52         app = flask.Flask(__name__)
+53         def index():
+54             return 'Hello World!'
+55         index.provide_automatic_options = False
+56         app.route('/')(index)
+57         rv = app.test_client().open('/', method='OPTIONS')
+58         assert rv.status_code == 405
+59 
+60         app = flask.Flask(__name__)
+61         def index2():
+62             return 'Hello World!'
+63         index2.provide_automatic_options = True
+64         app.route('/', methods=['OPTIONS'])(index2)
+65         rv = app.test_client().open('/', method='OPTIONS')
+66         assert sorted(rv.allow) == ['OPTIONS']
+67 
+68     def test_request_dispatching(self):

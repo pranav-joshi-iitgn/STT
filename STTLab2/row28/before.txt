@@ -1,0 +1,22 @@
+117         self.assert_equal(rv.status_code, 405)
+118         self.assert_equal(sorted(rv.allow), ['GET', 'HEAD', 'OPTIONS', 'POST'])
+119 
+120     def test_werkzeug_routing(self):
+121         from werkzeug.routing import Submount, Rule
+122         app = flask.Flask(__name__)
+123         app.url_map.add(Submount('/foo', [
+124             Rule('/bar', endpoint='bar'),
+125             Rule('/', endpoint='index')
+126         ]))
+127         def bar():
+128             return 'bar'
+129         def index():
+130             return 'index'
+131         app.view_functions['bar'] = bar
+132         app.view_functions['index'] = index
+133 
+134         c = app.test_client()
+135         self.assert_equal(c.get('/foo/').data, b'index')
+136         self.assert_equal(c.get('/foo/bar').data, b'bar')
+137 
+138     def test_endpoint_decorator(self):

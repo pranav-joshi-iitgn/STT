@@ -1,0 +1,18 @@
+172         assert c.post('/set', data={'value': '42'}).data == b'value set'
+173         assert c.get('/get').data == b'42'
+174 
+175     def test_session_using_server_name(self):
+176         app = flask.Flask(__name__)
+177         app.config.update(
+178             SECRET_KEY='foo',
+179             SERVER_NAME='example.com'
+180         )
+181         @app.route('/')
+182         def index():
+183             flask.session['testing'] = 42
+184             return 'Hello World'
+185         rv = app.test_client().get('/', 'http://example.com/')
+186         assert 'domain=.example.com' in rv.headers['set-cookie'].lower()
+187         assert 'httponly' in rv.headers['set-cookie'].lower()
+188 
+189     def test_session_using_server_name_and_port(self):

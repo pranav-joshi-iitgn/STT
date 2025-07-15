@@ -1,0 +1,24 @@
+344                 if 'site_package' in sys.modules:
+345                     del sys.modules['site_package']
+346 
+347     def test_egg_installed_paths(self, monkeypatch):
+348         here = os.path.abspath(os.path.dirname(__file__))
+349         expected_prefix = os.path.join(here, 'test_apps')
+350         monkeypatch.setattr(sys, 'prefix', expected_prefix)
+351 
+352         site_packages = os.path.join(expected_prefix, 'lib', 'python2.5',
+353                                      'site-packages')
+354         egg_path = os.path.join(site_packages, 'SiteEgg.egg')
+355         monkeypatch.syspath_prepend(egg_path)
+356         monkeypatch.syspath_prepend(site_packages)
+357 
+358         try:
+359             import site_egg # in SiteEgg.egg
+360             self.assert_equal(site_egg.app.instance_path,
+361                               os.path.join(expected_prefix, 'var',
+362                                            'site_egg-instance'))
+363         finally:
+364             if 'site_egg' in sys.modules:
+365                 del sys.modules['site_egg']
+366 
+367     if PY2:

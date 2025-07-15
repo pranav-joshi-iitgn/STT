@@ -1,0 +1,28 @@
+93             def index():
+94                 return "Hey"
+95 
+96     def test_url_mapping(self):
+97         app = flask.Flask(__name__)
+98         def index():
+99             return flask.request.method
+100         def more():
+101             return flask.request.method
+102 
+103         app.add_url_rule('/', 'index', index)
+104         app.add_url_rule('/more', 'more', more, methods=['GET', 'POST'])
+105 
+106         c = app.test_client()
+107         self.assert_equal(c.get('/').data, b'GET')
+108         rv = c.post('/')
+109         self.assert_equal(rv.status_code, 405)
+110         self.assert_equal(sorted(rv.allow), ['GET', 'HEAD', 'OPTIONS'])
+111         rv = c.head('/')
+112         self.assert_equal(rv.status_code, 200)
+113         self.assert_false(rv.data) # head truncates
+114         self.assert_equal(c.post('/more').data, b'POST')
+115         self.assert_equal(c.get('/more').data, b'GET')
+116         rv = c.delete('/more')
+117         self.assert_equal(rv.status_code, 405)
+118         self.assert_equal(sorted(rv.allow), ['GET', 'HEAD', 'OPTIONS', 'POST'])
+119 
+120     def test_werkzeug_routing(self):

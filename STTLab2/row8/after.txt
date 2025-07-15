@@ -1,0 +1,10 @@
+41         with pytest.raises(RuntimeError):
+42             flask.url_for('index')
+43 
+44     def test_request_context_means_app_context(self):
+45         app = flask.Flask(__name__)
+46         with app.test_request_context():
+47             assert flask.current_app._get_current_object() == app
+48         assert flask._app_ctx_stack.top == None
+49 
+50     def test_app_context_provides_current_app(self):

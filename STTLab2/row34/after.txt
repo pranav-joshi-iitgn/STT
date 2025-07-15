@@ -1,0 +1,26 @@
+216         assert 'path=/foo' in rv.headers['set-cookie'].lower()
+217         assert 'httponly' in rv.headers['set-cookie'].lower()
+218 
+219     def test_session_using_application_root(self):
+220         class PrefixPathMiddleware(object):
+221             def __init__(self, app, prefix):
+222                 self.app = app
+223                 self.prefix = prefix
+224             def __call__(self, environ, start_response):
+225                 environ['SCRIPT_NAME'] = self.prefix
+226                 return self.app(environ, start_response)
+227 
+228         app = flask.Flask(__name__)
+229         app.wsgi_app = PrefixPathMiddleware(app.wsgi_app, '/bar')
+230         app.config.update(
+231             SECRET_KEY='foo',
+232             APPLICATION_ROOT='/bar'
+233         )
+234         @app.route('/')
+235         def index():
+236             flask.session['testing'] = 42
+237             return 'Hello World'
+238         rv = app.test_client().get('/', 'http://example.com:8080/')
+239         assert 'path=/bar' in rv.headers['set-cookie'].lower()
+240 
+241     def test_session_using_session_settings(self):

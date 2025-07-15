@@ -1,0 +1,495 @@
+{
+    "__main__": {
+        "bacon": 0,
+        "imports": [
+            "pandas"
+        ],
+        "name": "__main__",
+        "path": null
+    },
+    "pandas": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "pandas",
+            "pandas._config",
+            "pandas._libs",
+            "pandas.api",
+            "pandas.arrays",
+            "pandas.compat",
+            "pandas.core.api",
+            "pandas.core.arrays",
+            "pandas.core.arrays.sparse",
+            "pandas.core.computation.api",
+            "pandas.core.config_init",
+            "pandas.core.reshape.api",
+            "pandas.errors",
+            "pandas.io",
+            "pandas.io.api",
+            "pandas.io.json",
+            "pandas.io.json._normalize",
+            "pandas.plotting",
+            "pandas.testing",
+            "pandas.tseries",
+            "pandas.tseries.api",
+            "pandas.tseries.offsets",
+            "pandas.util",
+            "pandas.util._print_versions",
+            "pandas.util._tester"
+        ],
+        "imports": [
+            "pandas",
+            "pandas._config",
+            "pandas._libs",
+            "pandas._libs.hashtable",
+            "pandas._libs.lib",
+            "pandas._libs.tslib",
+            "pandas._version",
+            "pandas.api",
+            "pandas.arrays",
+            "pandas.compat",
+            "pandas.core",
+            "pandas.core.api",
+            "pandas.core.arrays",
+            "pandas.core.arrays.sparse",
+            "pandas.core.computation",
+            "pandas.core.computation.api",
+            "pandas.core.config_init",
+            "pandas.core.reshape",
+            "pandas.core.reshape.api",
+            "pandas.errors",
+            "pandas.io",
+            "pandas.io.api",
+            "pandas.io.json",
+            "pandas.io.json._normalize",
+            "pandas.plotting",
+            "pandas.testing",
+            "pandas.tseries",
+            "pandas.tseries.api",
+            "pandas.tseries.offsets",
+            "pandas.util",
+            "pandas.util._print_versions",
+            "pandas.util._tester"
+        ],
+        "name": "pandas",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/__init__.py"
+    },
+    "pandas._config": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas._config",
+            "pandas.core.config_init",
+            "pandas.errors"
+        ],
+        "imports": [
+            "pandas",
+            "pandas._config"
+        ],
+        "name": "pandas._config",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/_config/__init__.py"
+    },
+    "pandas._libs": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas._libs",
+            "pandas.core.api",
+            "pandas.errors",
+            "pandas.io.json._normalize",
+            "pandas.tseries.offsets"
+        ],
+        "imports": [
+            "pandas",
+            "pandas._libs"
+        ],
+        "name": "pandas._libs",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/_libs/__init__.py"
+    },
+    "pandas._libs.hashtable": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "name": "pandas._libs.hashtable",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/_libs/hashtable.cpython-310-x86_64-linux-gnu.so"
+    },
+    "pandas._libs.lib": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "name": "pandas._libs.lib",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/_libs/lib.cpython-310-x86_64-linux-gnu.so"
+    },
+    "pandas._libs.tslib": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "name": "pandas._libs.tslib",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/_libs/tslib.cpython-310-x86_64-linux-gnu.so"
+    },
+    "pandas._version": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.util._print_versions"
+        ],
+        "name": "pandas._version",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/_version.py"
+    },
+    "pandas.api": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.api"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.api"
+        ],
+        "name": "pandas.api",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/api/__init__.py"
+    },
+    "pandas.arrays": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.core",
+            "pandas.core.arrays"
+        ],
+        "name": "pandas.arrays",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/arrays/__init__.py"
+    },
+    "pandas.compat": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.compat",
+            "pandas.util._print_versions",
+            "pandas.util._tester"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.compat"
+        ],
+        "name": "pandas.compat",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/compat/__init__.py"
+    },
+    "pandas.core": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.arrays",
+            "pandas.core.api",
+            "pandas.core.arrays",
+            "pandas.core.arrays.sparse",
+            "pandas.core.computation.api",
+            "pandas.core.config_init",
+            "pandas.core.reshape.api",
+            "pandas.util"
+        ],
+        "name": "pandas.core",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/core/__init__.py"
+    },
+    "pandas.core.api": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas._libs",
+            "pandas.core",
+            "pandas.core.arrays",
+            "pandas.io",
+            "pandas.tseries",
+            "pandas.tseries.offsets"
+        ],
+        "name": "pandas.core.api",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/core/api.py"
+    },
+    "pandas.core.arrays": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.arrays",
+            "pandas.core.api",
+            "pandas.core.arrays",
+            "pandas.core.arrays.sparse"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.core",
+            "pandas.core.arrays",
+            "pandas.core.arrays.sparse"
+        ],
+        "name": "pandas.core.arrays",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/core/arrays/__init__.py"
+    },
+    "pandas.core.arrays.sparse": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.core.arrays",
+            "pandas.core.arrays.sparse"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.core",
+            "pandas.core.arrays",
+            "pandas.core.arrays.sparse"
+        ],
+        "name": "pandas.core.arrays.sparse",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/core/arrays/sparse/__init__.py"
+    },
+    "pandas.core.computation": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.core.computation.api",
+            "pandas.core.config_init"
+        ],
+        "name": "pandas.core.computation",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/core/computation/__init__.py"
+    },
+    "pandas.core.computation.api": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.core",
+            "pandas.core.computation"
+        ],
+        "name": "pandas.core.computation.api",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/core/computation/api.py"
+    },
+    "pandas.core.config_init": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas._config",
+            "pandas.core",
+            "pandas.core.computation",
+            "pandas.io",
+            "pandas.plotting"
+        ],
+        "name": "pandas.core.config_init",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/core/config_init.py"
+    },
+    "pandas.core.reshape": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.core.reshape.api"
+        ],
+        "name": "pandas.core.reshape",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/core/reshape/__init__.py"
+    },
+    "pandas.core.reshape.api": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.core",
+            "pandas.core.reshape"
+        ],
+        "name": "pandas.core.reshape.api",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/core/reshape/api.py"
+    },
+    "pandas.errors": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas._config",
+            "pandas._libs",
+            "pandas.util"
+        ],
+        "name": "pandas.errors",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/errors/__init__.py"
+    },
+    "pandas.io": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.core.api",
+            "pandas.core.config_init",
+            "pandas.io",
+            "pandas.io.api",
+            "pandas.io.json"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.io",
+            "pandas.io.json"
+        ],
+        "name": "pandas.io",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/io/__init__.py"
+    },
+    "pandas.io.api": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.io",
+            "pandas.io.json"
+        ],
+        "name": "pandas.io.api",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/io/api.py"
+    },
+    "pandas.io.json": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.io",
+            "pandas.io.api",
+            "pandas.io.json"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.io",
+            "pandas.io.json"
+        ],
+        "name": "pandas.io.json",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/io/json/__init__.py"
+    },
+    "pandas.io.json._normalize": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas._libs",
+            "pandas.util"
+        ],
+        "name": "pandas.io.json._normalize",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/io/json/_normalize.py"
+    },
+    "pandas.plotting": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.core.config_init",
+            "pandas.plotting"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.plotting"
+        ],
+        "name": "pandas.plotting",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/plotting/__init__.py"
+    },
+    "pandas.testing": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas"
+        ],
+        "name": "pandas.testing",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/testing.py"
+    },
+    "pandas.tseries": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.core.api",
+            "pandas.tseries",
+            "pandas.tseries.api"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.tseries",
+            "pandas.tseries.offsets"
+        ],
+        "name": "pandas.tseries",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/tseries/__init__.py"
+    },
+    "pandas.tseries.api": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.tseries",
+            "pandas.tseries.offsets"
+        ],
+        "name": "pandas.tseries.api",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/tseries/api.py"
+    },
+    "pandas.tseries.offsets": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.core.api",
+            "pandas.tseries",
+            "pandas.tseries.api"
+        ],
+        "imports": [
+            "pandas",
+            "pandas._libs"
+        ],
+        "name": "pandas.tseries.offsets",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/tseries/offsets.py"
+    },
+    "pandas.util": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas",
+            "pandas.errors",
+            "pandas.io.json._normalize",
+            "pandas.util"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.core",
+            "pandas.util"
+        ],
+        "name": "pandas.util",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/util/__init__.py"
+    },
+    "pandas.util._print_versions": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas._version",
+            "pandas.compat"
+        ],
+        "name": "pandas.util._print_versions",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/util/_print_versions.py"
+    },
+    "pandas.util._tester": {
+        "bacon": 2,
+        "imported_by": [
+            "pandas"
+        ],
+        "imports": [
+            "pandas",
+            "pandas.compat"
+        ],
+        "name": "pandas.util._tester",
+        "path": "/home/hp/.local/lib/python3.10/site-packages/pandas/util/_tester.py"
+    }
+}

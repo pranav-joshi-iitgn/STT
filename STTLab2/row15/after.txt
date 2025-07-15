@@ -1,0 +1,13 @@
+28 
+29 class TestBasicFunctionality(TestFlask):
+30 
+31     def test_options_work(self):
+32         app = flask.Flask(__name__)
+33         @app.route('/', methods=['GET', 'POST'])
+34         def index():
+35             return 'Hello World'
+36         rv = app.test_client().open('/', method='OPTIONS')
+37         assert sorted(rv.allow) == ['GET', 'HEAD', 'OPTIONS', 'POST']
+38         assert rv.data == b''
+39 
+40     def test_options_on_multiple_rules(self):

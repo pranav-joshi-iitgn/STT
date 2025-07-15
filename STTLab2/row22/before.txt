@@ -1,0 +1,27 @@
+63         rv = app.test_client().open('/', method='OPTIONS')
+64         self.assert_equal(sorted(rv.allow), ['OPTIONS'])
+65 
+66     def test_request_dispatching(self):
+67         app = flask.Flask(__name__)
+68         @app.route('/')
+69         def index():
+70             return flask.request.method
+71         @app.route('/more', methods=['GET', 'POST'])
+72         def more():
+73             return flask.request.method
+74 
+75         c = app.test_client()
+76         self.assert_equal(c.get('/').data, b'GET')
+77         rv = c.post('/')
+78         self.assert_equal(rv.status_code, 405)
+79         self.assert_equal(sorted(rv.allow), ['GET', 'HEAD', 'OPTIONS'])
+80         rv = c.head('/')
+81         self.assert_equal(rv.status_code, 200)
+82         self.assert_false(rv.data) # head truncates
+83         self.assert_equal(c.post('/more').data, b'POST')
+84         self.assert_equal(c.get('/more').data, b'GET')
+85         rv = c.delete('/more')
+86         self.assert_equal(rv.status_code, 405)
+87         self.assert_equal(sorted(rv.allow), ['GET', 'HEAD', 'OPTIONS', 'POST'])
+88 
+89     def test_disallow_string_for_allowed_methods(self):

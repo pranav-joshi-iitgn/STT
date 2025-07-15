@@ -1,0 +1,16 @@
+51             self.assert_equal(flask.current_app._get_current_object(), app)
+52         self.assert_equal(flask._app_ctx_stack.top, None)
+53 
+54     def test_app_tearing_down(self):
+55         cleanup_stuff = []
+56         app = flask.Flask(__name__)
+57         @app.teardown_appcontext
+58         def cleanup(exception):
+59             cleanup_stuff.append(exception)
+60 
+61         with app.app_context():
+62             pass
+63 
+64         self.assert_equal(cleanup_stuff, [None])
+65 
+66     def test_app_tearing_down_with_previous_exception(self):

@@ -1,0 +1,10 @@
+Before: 76
+After: 78
+Bug type : use assert_equal and assert_equal_equal
+Commit Message : Rewrite assertion methods
+File Path : tests/test_basic.py
+Fixed Commit : 5da2c00419d09ce2d3488263036ffd14563fb05a
+Buggy Commit : dd6b2574c9d40c4777da71d576f6e5eea1712404
+URL : https://github.com/pallets/flask/commit/5da2c00419d09ce2d3488263036ffd14563fb05a
+DEV
+assert_equal_equal is not there

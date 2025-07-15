@@ -1,0 +1,53 @@
+{
+    "0": [
+        "pandas._libs.hashtable"
+    ],
+    "1": [
+        "pandas._libs.lib"
+    ],
+    "2": [
+        "pandas._libs.tslib"
+    ],
+    "3": [
+        "pandas._version"
+    ],
+    "4": [
+        "pandas.core"
+    ],
+    "5": [
+        "pandas.core.computation"
+    ],
+    "6": [
+        "pandas.core.reshape"
+    ],
+    "7": [
+        "pandas._libs",
+        "pandas.io",
+        "pandas._config",
+        "pandas.testing",
+        "pandas.core.config_init",
+        "pandas.tseries.offsets",
+        "pandas.core.arrays",
+        "pandas.compat",
+        "pandas.tseries.api",
+        "pandas.core.reshape.api",
+        "pandas.arrays",
+        "pandas",
+        "pandas.core.computation.api",
+        "pandas.io.json._normalize",
+        "pandas.util",
+        "pandas.core.arrays.sparse",
+        "pandas.util._print_versions",
+        "pandas.io.json",
+        "pandas.tseries",
+        "pandas.core.api",
+        "pandas.errors",
+        "pandas.util._tester",
+        "pandas.io.api",
+        "pandas.api",
+        "pandas.plotting"
+    ],
+    "8": [
+        "__main__"
+    ]
+}

@@ -1,0 +1,26 @@
+238         rv = app.test_client().get('/', 'http://example.com:8080/')
+239         assert 'path=/bar' in rv.headers['set-cookie'].lower()
+240 
+241     def test_session_using_session_settings(self):
+242         app = flask.Flask(__name__)
+243         app.config.update(
+244             SECRET_KEY='foo',
+245             SERVER_NAME='www.example.com:8080',
+246             APPLICATION_ROOT='/test',
+247             SESSION_COOKIE_DOMAIN='.example.com',
+248             SESSION_COOKIE_HTTPONLY=False,
+249             SESSION_COOKIE_SECURE=True,
+250             SESSION_COOKIE_PATH='/'
+251         )
+252         @app.route('/')
+253         def index():
+254             flask.session['testing'] = 42
+255             return 'Hello World'
+256         rv = app.test_client().get('/', 'http://www.example.com:8080/test/')
+257         cookie = rv.headers['set-cookie'].lower()
+258         assert 'domain=.example.com' in cookie
+259         assert 'path=/' in cookie
+260         assert 'secure' in cookie
+261         assert 'httponly' not in cookie
+262 
+263     def test_missing_session(self):

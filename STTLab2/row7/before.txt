@@ -1,0 +1,8 @@
+35             with self.assert_raises(RuntimeError):
+36                 flask.url_for('index')
+37 
+38     def test_url_generation_without_context_fails(self):
+39         with self.assert_raises(RuntimeError):
+40             flask.url_for('index')
+41 
+42     def test_request_context_means_app_context(self):

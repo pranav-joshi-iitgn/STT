@@ -1,0 +1,10 @@
+39         with self.assert_raises(RuntimeError):
+40             flask.url_for('index')
+41 
+42     def test_request_context_means_app_context(self):
+43         app = flask.Flask(__name__)
+44         with app.test_request_context():
+45             self.assert_equal(flask.current_app._get_current_object(), app)
+46         self.assert_equal(flask._app_ctx_stack.top, None)
+47 
+48     def test_app_context_provides_current_app(self):

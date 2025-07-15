@@ -1,0 +1,11 @@
+86         self.assert_equal(rv.status_code, 405)
+87         self.assert_equal(sorted(rv.allow), ['GET', 'HEAD', 'OPTIONS', 'POST'])
+88 
+89     def test_disallow_string_for_allowed_methods(self):
+90         app = flask.Flask(__name__)
+91         with self.assert_raises(TypeError):
+92             @app.route('/', methods='GET POST')
+93             def index():
+94                 return "Hey"
+95 
+96     def test_url_mapping(self):

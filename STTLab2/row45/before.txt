@@ -1,0 +1,35 @@
+322         self.assert_equal(c.get('/').data, b'None')
+323         self.assert_equal(c.get('/').data, b'42')
+324 
+325     def test_session_special_types(self):
+326         app = flask.Flask(__name__)
+327         app.secret_key = 'development-key'
+328         app.testing = True
+329         now = datetime.utcnow().replace(microsecond=0)
+330         the_uuid = uuid.uuid4()
+331 
+332         @app.after_request
+333         def modify_session(response):
+334             flask.session['m'] = flask.Markup('Hello!')
+335             flask.session['u'] = the_uuid
+336             flask.session['dt'] = now
+337             flask.session['b'] = b'\xff'
+338             flask.session['t'] = (1, 2, 3)
+339             return response
+340 
+341         @app.route('/')
+342         def dump_session_contents():
+343             return pickle.dumps(dict(flask.session))
+344 
+345         c = app.test_client()
+346         c.get('/')
+347         rv = pickle.loads(c.get('/').data)
+348         self.assert_equal(rv['m'], flask.Markup('Hello!'))
+349         self.assert_equal(type(rv['m']), flask.Markup)
+350         self.assert_equal(rv['dt'], now)
+351         self.assert_equal(rv['u'], the_uuid)
+352         self.assert_equal(rv['b'], b'\xff')
+353         self.assert_equal(type(rv['b']), bytes)
+354         self.assert_equal(rv['t'], (1, 2, 3))
+355 
+356     def test_session_cookie_setting(self):

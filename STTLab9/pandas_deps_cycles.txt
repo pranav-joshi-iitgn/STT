@@ -1,0 +1,65 @@
+pandas._libs --> pandas
+pandas.io --> pandas
+pandas.io --> pandas.io.json
+pandas._config --> pandas
+pandas.testing --> pandas
+pandas.core.config_init --> pandas
+pandas.tseries.offsets --> pandas
+pandas.core.arrays --> pandas
+pandas.core.arrays --> pandas.core.arrays.sparse
+pandas.util._print_versions --> pandas
+pandas.compat --> pandas
+pandas.errors --> pandas
+pandas.io.json --> pandas
+pandas.tseries.api --> pandas
+pandas.util._tester --> pandas
+pandas.io.api --> pandas
+pandas.tseries --> pandas
+pandas.core.reshape.api --> pandas
+pandas.arrays --> pandas
+pandas.api --> pandas
+pandas --> pandas.core.api
+pandas --> pandas.core.arrays.sparse
+pandas --> pandas.core.computation.api
+pandas --> pandas.io.json._normalize
+pandas --> pandas.plotting
+pandas --> pandas.util
+pandas._libs --> pandas --> pandas.core.api
+pandas._libs --> pandas --> pandas.errors
+pandas._libs --> pandas --> pandas.io.json._normalize
+pandas._libs --> pandas --> pandas.tseries.offsets
+pandas.io --> pandas --> pandas.core.api
+pandas.io --> pandas --> pandas.core.config_init
+pandas.io --> pandas --> pandas.io.api
+pandas.io --> pandas --> pandas.io.json
+pandas.io --> pandas.io.json --> pandas
+pandas._config --> pandas --> pandas.core.config_init
+pandas._config --> pandas --> pandas.errors
+pandas.core.config_init --> pandas.plotting --> pandas
+pandas.tseries.offsets --> pandas --> pandas.core.api
+pandas.tseries.offsets --> pandas --> pandas.tseries
+pandas.tseries.offsets --> pandas --> pandas.tseries.api
+pandas.core.arrays --> pandas --> pandas.arrays
+pandas.core.arrays --> pandas --> pandas.core.api
+pandas.core.arrays --> pandas --> pandas.core.arrays.sparse
+pandas.core.arrays --> pandas.core.arrays.sparse --> pandas
+pandas.util._print_versions --> pandas.compat --> pandas
+pandas.compat --> pandas --> pandas.util._tester
+pandas.errors --> pandas.util --> pandas
+pandas.io.json --> pandas --> pandas.io.api
+pandas.tseries.api --> pandas.tseries --> pandas
+pandas.tseries --> pandas --> pandas.core.api
+pandas --> pandas.io.json._normalize --> pandas.util
+pandas._libs --> pandas --> pandas.core.api --> pandas.tseries.offsets
+pandas._libs --> pandas --> pandas.tseries --> pandas.tseries.offsets
+pandas._libs --> pandas --> pandas.tseries.api --> pandas.tseries.offsets
+pandas.io --> pandas --> pandas.io.api --> pandas.io.json
+pandas.io --> pandas.io.json --> pandas --> pandas.core.api
+pandas.io --> pandas.io.json --> pandas --> pandas.core.config_init
+pandas.io --> pandas.io.json --> pandas --> pandas.io.api
+pandas.tseries.offsets --> pandas --> pandas.core.api --> pandas.tseries
+pandas.tseries.offsets --> pandas --> pandas.tseries.api --> pandas.tseries
+pandas.core.arrays --> pandas.core.arrays.sparse --> pandas --> pandas.arrays
+pandas.core.arrays --> pandas.core.arrays.sparse --> pandas --> pandas.core.api
+pandas._libs --> pandas --> pandas.core.api --> pandas.tseries --> pandas.tseries.offsets
+pandas._libs --> pandas --> pandas.tseries.api --> pandas.tseries --> pandas.tseries.offsets

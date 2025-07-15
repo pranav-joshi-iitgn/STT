@@ -1,0 +1,10 @@
+29             rv = flask.url_for('index')
+30             self.assert_equal(rv, 'https://localhost/')
+31 
+32     def test_url_generation_requires_server_name(self):
+33         app = flask.Flask(__name__)
+34         with app.app_context():
+35             with self.assert_raises(RuntimeError):
+36                 flask.url_for('index')
+37 
+38     def test_url_generation_without_context_fails(self):

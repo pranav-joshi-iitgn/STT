@@ -1,0 +1,209 @@
+<table>
+<tr>
+<td>JAVA code</td>
+<td>LCOM1</td>
+<td>LCOM2</td>
+<td>LCOM3</td>
+<td>LCOM4</td>
+<td>LCOM5</td>
+<td>YALCOM</td>
+</tr>
+<tr>
+<td>
+class:FloatColumnType<br>
+package:tech.tablesaw.columns.numbers<pre><small>
+package tech.tablesaw.columns.numbers;
+/** The {@link ColumnType} for {@link FloatColumn} */
+public class FloatColumnType extends AbstractColumnType {
+  public static final int BYTE_SIZE = 4;
+  /** Returns the default parser for {@link FloatColumn} */
+  public static final FloatParser DEFAULT_PARSER = new FloatParser(ColumnType.FLOAT);
+  private static FloatColumnType INSTANCE;
+  private FloatColumnType(int byteSize, String name, String printerFriendlyName) {
+    super(byteSize, name, printerFriendlyName);
+  }
+  /** Returns the singleton instance of FloatColumnType */
+  public static FloatColumnType instance() {
+    if (INSTANCE == null) {
+      INSTANCE = new FloatColumnType(BYTE_SIZE, "FLOAT", "float");
+    }
+    return INSTANCE;
+  }
+  /** {@inheritDoc} */
+  @Override
+  public FloatColumn create(String name) {
+    return FloatColumn.create(name);
+  }
+  /** {@inheritDoc} */
+  @Override
+  public FloatParser customParser(ReadOptions options) {
+    return new FloatParser(this, options);
+  }
+  /** Returns true if the given value is the missing value indicator for this column type */
+  public static boolean valueIsMissing(float value) {
+    return Float.isNaN(value);
+  }
+  /** Returns the missing value indicator for this column type */
+  public static float missingValueIndicator() {
+    return Float.NaN;
+  }
+}
+</small></pre></td>
+<td>15.0</td>
+<td>0.0</td>
+<td>6.0</td>
+<td>6.0</td>
+<td>1.0666666666666669</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>
+class:DateAggregateFunction<br>
+package:tech.tablesaw.aggregate<pre><small>
+package tech.tablesaw.aggregate;
+/** A partial implementation of aggregate functions to summarize over a date column */
+public abstract class DateAggregateFunction extends AggregateFunction&lt;DateColumn, LocalDate&gt; {
+  /**
+   * Constructs a DateAggregateFunction with the given name. The name may be used to name a column
+   * in the output when this function is used by {@link Summarizer}
+   */
+  public DateAggregateFunction(String name) {
+    super(name);
+  }
+  /**
+   * Returns an instance of LocalDate that is the result of applying this function to the given
+   * column
+   */
+  public abstract LocalDate summarize(DateColumn column);
+  /** {@inheritDoc} */
+  @Override
+  public boolean isCompatibleColumn(ColumnType type) {
+    return type.equals(ColumnType.LOCAL_DATE);
+  }
+  /** {@inheritDoc} */
+  @Override
+  public ColumnType returnType() {
+    return ColumnType.LOCAL_DATE;
+  }
+}
+</small></pre></td>
+<td>6.0</td>
+<td>0.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>
+class:BooleanIntAggregateFunction<br>
+package:tech.tablesaw.aggregate<pre><small>
+package tech.tablesaw.aggregate;
+/**
+ * A partial implementation of an AggregateFunction that returns an Integer value when applied to a
+ * Boolean Column
+ */
+public abstract class BooleanIntAggregateFunction
+    extends AggregateFunction&lt;BooleanColumn, Integer&gt; {
+  /**
+   * Constructs a BooleanCountFunction with the given name. The name may be used to name a column in
+   * the output when this function is used by {@link Summarizer}
+   */
+  public BooleanIntAggregateFunction(String functionName) {
+    super(functionName);
+  }
+  /** Returns an Integer as a result of applying this function to the given column */
+  @Override
+  public abstract Integer summarize(BooleanColumn column);
+  /** {@inheritDoc} */
+  @Override
+  public boolean isCompatibleColumn(ColumnType type) {
+    return type.equals(ColumnType.BOOLEAN);
+  }
+  /** {@inheritDoc} */
+  @Override
+  public ColumnType returnType() {
+    return ColumnType.DOUBLE;
+  }
+}
+</small></pre></td>
+<td>6.0</td>
+<td>0.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>
+class:NumericAggregateFunction<br>
+package:tech.tablesaw.aggregate<pre><small>
+package tech.tablesaw.aggregate;
+/** A partial implementation of aggregate functions to summarize over a numeric column */
+public abstract class NumericAggregateFunction extends AggregateFunction&lt;NumericColumn&lt;?&gt;, Double&gt; {
+  /**
+   * Constructs a NumericAggregateFunction with the given name. The name may be used to name a
+   * column in the output when this function is used by {@link Summarizer}
+   */
+  public NumericAggregateFunction(String name) {
+    super(name);
+  }
+  /** {@inheritDoc} */
+  @Override
+  public boolean isCompatibleColumn(ColumnType type) {
+    return type.equals(ColumnType.DOUBLE)
+        || type.equals(ColumnType.FLOAT)
+        || type.equals(ColumnType.INTEGER)
+        || type.equals(ColumnType.SHORT)
+        || type.equals(ColumnType.LONG);
+  }
+  /** {@inheritDoc} */
+  @Override
+  public ColumnType returnType() {
+    return ColumnType.DOUBLE;
+  }
+}
+</small></pre></td>
+<td>3.0</td>
+<td>0.0</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>
+class:TimeAggregateFunction<br>
+package:tech.tablesaw.aggregate<pre><small>
+package tech.tablesaw.aggregate;
+/** A partial implementation of aggregate functions to summarize over a time column */
+public abstract class TimeAggregateFunction extends AggregateFunction&lt;TimeColumn, LocalTime&gt; {
+  /**
+   * Constructs a TimeAggregateFunction with the given name. The name is used as a column name in
+   * the output
+   */
+  public TimeAggregateFunction(String name) {
+    super(name);
+  }
+  /** Returns a LocalTime object that is the result of applying this function to the given Column */
+  public abstract LocalTime summarize(TimeColumn column);
+  /** {@inheritDoc} */
+  @Override
+  public boolean isCompatibleColumn(ColumnType type) {
+    return type.equals(ColumnType.LOCAL_TIME);
+  }
+  /** {@inheritDoc} */
+  @Override
+  public ColumnType returnType() {
+    return ColumnType.LOCAL_TIME;
+  }
+}
+</small></pre></td>
+<td>6.0</td>
+<td>0.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+</table>

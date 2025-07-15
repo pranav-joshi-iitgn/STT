@@ -1,0 +1,85 @@
+408             self.assert_true(flask.session.modified)
+409             self.assert_equal(list(flask.get_flashed_messages()), ['Zap', 'Zip'])
+410 
+411     def test_extended_flashing(self):
+412         # Be sure app.testing=True below, else tests can fail silently.
+413         #
+414         # Specifically, if app.testing is not set to True, the AssertionErrors
+415         # in the view functions will cause a 500 response to the test client
+416         # instead of propagating exceptions.
+417 
+418         app = flask.Flask(__name__)
+419         app.secret_key = 'testkey'
+420         app.testing = True
+421 
+422         @app.route('/')
+423         def index():
+424             flask.flash(u'Hello World')
+425             flask.flash(u'Hello World', 'error')
+426             flask.flash(flask.Markup(u'<em>Testing</em>'), 'warning')
+427             return ''
+428 
+429         @app.route('/test/')
+430         def test():
+431             messages = flask.get_flashed_messages()
+432             self.assert_equal(len(messages), 3)
+433             self.assert_equal(messages[0], u'Hello World')
+434             self.assert_equal(messages[1], u'Hello World')
+435             self.assert_equal(messages[2], flask.Markup(u'<em>Testing</em>'))
+436             return ''
+437 
+438         @app.route('/test_with_categories/')
+439         def test_with_categories():
+440             messages = flask.get_flashed_messages(with_categories=True)
+441             self.assert_equal(len(messages), 3)
+442             self.assert_equal(messages[0], ('message', u'Hello World'))
+443             self.assert_equal(messages[1], ('error', u'Hello World'))
+444             self.assert_equal(messages[2], ('warning', flask.Markup(u'<em>Testing</em>')))
+445             return ''
+446 
+447         @app.route('/test_filter/')
+448         def test_filter():
+449             messages = flask.get_flashed_messages(category_filter=['message'], with_categories=True)
+450             self.assert_equal(len(messages), 1)
+451             self.assert_equal(messages[0], ('message', u'Hello World'))
+452             return ''
+453 
+454         @app.route('/test_filters/')
+455         def test_filters():
+456             messages = flask.get_flashed_messages(category_filter=['message', 'warning'], with_categories=True)
+457             self.assert_equal(len(messages), 2)
+458             self.assert_equal(messages[0], ('message', u'Hello World'))
+459             self.assert_equal(messages[1], ('warning', flask.Markup(u'<em>Testing</em>')))
+460             return ''
+461 
+462         @app.route('/test_filters_without_returning_categories/')
+463         def test_filters2():
+464             messages = flask.get_flashed_messages(category_filter=['message', 'warning'])
+465             self.assert_equal(len(messages), 2)
+466             self.assert_equal(messages[0], u'Hello World')
+467             self.assert_equal(messages[1], flask.Markup(u'<em>Testing</em>'))
+468             return ''
+469 
+470         # Create new test client on each test to clean flashed messages.
+471 
+472         c = app.test_client()
+473         c.get('/')
+474         c.get('/test/')
+475 
+476         c = app.test_client()
+477         c.get('/')
+478         c.get('/test_with_categories/')
+479 
+480         c = app.test_client()
+481         c.get('/')
+482         c.get('/test_filter/')
+483 
+484         c = app.test_client()
+485         c.get('/')
+486         c.get('/test_filters/')
+487 
+488         c = app.test_client()
+489         c.get('/')
+490         c.get('/test_filters_without_returning_categories/')
+491 
+492     def test_request_processing(self):

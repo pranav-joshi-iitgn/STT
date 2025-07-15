@@ -1,0 +1,10 @@
+Before: 262
+After: 262
+Bug type : fix typo in conf.py
+Commit Message : Fixed command
+File Path : docs/conf.py
+Fixed Commit : 2b103134cf165ba453d5492e1a73b57b1e5bef1e
+Buggy Commit : 5d011c356dfc659a4c2ef66e8c847d489aef4e9c
+URL : https://github.com/pallets/flask/commit/2b103134cf165ba453d5492e1a73b57b1e5bef1e
+BOTH
+LLM's message is more descriptive, and the commit message is specific and precise

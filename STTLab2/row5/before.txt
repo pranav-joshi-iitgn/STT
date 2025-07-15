@@ -1,0 +1,17 @@
+16 
+17 class TestAppContext(TestFlask):
+18 
+19     def test_basic_url_generation(self):
+20         app = flask.Flask(__name__)
+21         app.config['SERVER_NAME'] = 'localhost'
+22         app.config['PREFERRED_URL_SCHEME'] = 'https'
+23 
+24         @app.route('/')
+25         def index():
+26             pass
+27 
+28         with app.app_context():
+29             rv = flask.url_for('index')
+30             self.assert_equal(rv, 'https://localhost/')
+31 
+32     def test_url_generation_requires_server_name(self):

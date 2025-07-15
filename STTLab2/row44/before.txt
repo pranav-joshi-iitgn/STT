@@ -1,0 +1,21 @@
+305         match = re.search(r'\bexpires=([^;]+)', rv.headers['set-cookie'])
+306         self.assert_true(match is None)
+307 
+308     def test_session_stored_last(self):
+309         app = flask.Flask(__name__)
+310         app.secret_key = 'development-key'
+311         app.testing = True
+312 
+313         @app.after_request
+314         def modify_session(response):
+315             flask.session['foo'] = 42
+316             return response
+317         @app.route('/')
+318         def dump_session_contents():
+319             return repr(flask.session.get('foo'))
+320 
+321         c = app.test_client()
+322         self.assert_equal(c.get('/').data, b'None')
+323         self.assert_equal(c.get('/').data, b'42')
+324 
+325     def test_session_special_types(self):

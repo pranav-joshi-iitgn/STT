@@ -1,0 +1,21 @@
+63 
+64         self.assert_equal(cleanup_stuff, [None])
+65 
+66     def test_app_tearing_down_with_previous_exception(self):
+67         cleanup_stuff = []
+68         app = flask.Flask(__name__)
+69         @app.teardown_appcontext
+70         def cleanup(exception):
+71             cleanup_stuff.append(exception)
+72 
+73         try:
+74             raise Exception('dummy')
+75         except Exception:
+76             pass
+77 
+78         with app.app_context():
+79             pass
+80 
+81         self.assert_equal(cleanup_stuff, [None])
+82 
+83     def test_custom_app_ctx_globals_class(self):

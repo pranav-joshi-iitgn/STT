@@ -1,0 +1,20 @@
+198         self.assert_in('domain=.example.com', rv.headers['set-cookie'].lower())
+199         self.assert_in('httponly', rv.headers['set-cookie'].lower())
+200 
+201     def test_session_using_server_name_port_and_path(self):
+202         app = flask.Flask(__name__)
+203         app.config.update(
+204             SECRET_KEY='foo',
+205             SERVER_NAME='example.com:8080',
+206             APPLICATION_ROOT='/foo'
+207         )
+208         @app.route('/')
+209         def index():
+210             flask.session['testing'] = 42
+211             return 'Hello World'
+212         rv = app.test_client().get('/', 'http://example.com:8080/foo')
+213         self.assert_in('domain=example.com', rv.headers['set-cookie'].lower())
+214         self.assert_in('path=/foo', rv.headers['set-cookie'].lower())
+215         self.assert_in('httponly', rv.headers['set-cookie'].lower())
+216 
+217     def test_session_using_application_root(self):

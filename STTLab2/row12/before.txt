@@ -1,0 +1,14 @@
+80 
+81         self.assert_equal(cleanup_stuff, [None])
+82 
+83     def test_custom_app_ctx_globals_class(self):
+84         class CustomRequestGlobals(object):
+85             def __init__(self):
+86                 self.spam = 'eggs'
+87         app = flask.Flask(__name__)
+88         app.app_ctx_globals_class = CustomRequestGlobals
+89         with app.app_context():
+90             self.assert_equal(
+91                 flask.render_template_string('{{ g.spam }}'), 'eggs')
+92 
+93     def test_context_refcounts(self):

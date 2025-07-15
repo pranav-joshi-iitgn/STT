@@ -1,0 +1,18 @@
+260         assert 'secure' in cookie
+261         assert 'httponly' not in cookie
+262 
+263     def test_missing_session(self):
+264         app = flask.Flask(__name__)
+265         def expect_exception(f, *args, **kwargs):
+266             try:
+267                 f(*args, **kwargs)
+268             except RuntimeError as e:
+269                 assert e.args and 'session is unavailable' in e.args[0]
+270             else:
+271                 assert False, 'expected exception'
+272         with app.test_request_context():
+273             assert flask.session.get('missing_key') is None
+274             expect_exception(flask.session.__setitem__, 'foo', 42)
+275             expect_exception(flask.session.pop, 'foo')
+276 
+277     def test_session_expiration(self):

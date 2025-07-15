@@ -1,0 +1,27 @@
+91         with app.app_context():
+92             assert flask.render_template_string('{{ g.spam }}') == 'eggs'
+93 
+94     def test_context_refcounts(self):
+95         called = []
+96         app = flask.Flask(__name__)
+97         @app.teardown_request
+98         def teardown_req(error=None):
+99             called.append('request')
+100         @app.teardown_appcontext
+101         def teardown_app(error=None):
+102             called.append('app')
+103         @app.route('/')
+104         def index():
+105             with flask._app_ctx_stack.top:
+106                 with flask._request_ctx_stack.top:
+107                     pass
+108             env = flask._request_ctx_stack.top.request.environ
+109             assert env['werkzeug.request'] is not None
+110             return u''
+111         c = app.test_client()
+112         res = c.get('/')
+113         assert res.status_code == 200
+114         assert res.data == u''
+115         assert called == ['request', 'app']
+116 
+117 

@@ -1,0 +1,19 @@
+157         assert c.get('/foo/').data == b'index'
+158         assert c.get('/foo/bar').data == b'bar'
+159 
+160     def test_session(self):
+161         app = flask.Flask(__name__)
+162         app.secret_key = 'testkey'
+163         @app.route('/set', methods=['POST'])
+164         def set():
+165             flask.session['value'] = flask.request.form['value']
+166             return 'value set'
+167         @app.route('/get')
+168         def get():
+169             return flask.session['value']
+170 
+171         c = app.test_client()
+172         assert c.post('/set', data={'value': '42'}).data == b'value set'
+173         assert c.get('/get').data == b'42'
+174 
+175     def test_session_using_server_name(self):

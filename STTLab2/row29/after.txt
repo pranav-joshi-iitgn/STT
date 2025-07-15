@@ -1,0 +1,24 @@
+137         assert c.get('/foo/').data == b'index'
+138         assert c.get('/foo/bar').data == b'bar'
+139 
+140     def test_endpoint_decorator(self):
+141         from werkzeug.routing import Submount, Rule
+142         app = flask.Flask(__name__)
+143         app.url_map.add(Submount('/foo', [
+144             Rule('/bar', endpoint='bar'),
+145             Rule('/', endpoint='index')
+146         ]))
+147 
+148         @app.endpoint('bar')
+149         def bar():
+150             return 'bar'
+151 
+152         @app.endpoint('index')
+153         def index():
+154             return 'index'
+155 
+156         c = app.test_client()
+157         assert c.get('/foo/').data == b'index'
+158         assert c.get('/foo/bar').data == b'bar'
+159 
+160     def test_session(self):

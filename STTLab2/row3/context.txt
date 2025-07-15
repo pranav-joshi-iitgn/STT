@@ -1,0 +1,10 @@
+Before: 350, 351
+After: 350, 351, 352, 353
+Bug type : fix test_config.py for python 2.5
+Commit Message : Some fixes
+File Path : tests/test_config.py
+Fixed Commit : df711eac90223db990eae05a60ee1f6b403443e1
+Buggy Commit : 8d97d7143079dd862564a1e119ad44817ba176d6
+URL : https://github.com/pallets/flask/commit/df711eac90223db990eae05a60ee1f6b403443e1
+NONE
+The commit message is too vague, but LLM's output is factually incorrect

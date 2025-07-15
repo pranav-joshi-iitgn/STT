@@ -1,0 +1,37 @@
+272             expect_exception(flask.session.__setitem__, 'foo', 42)
+273             expect_exception(flask.session.pop, 'foo')
+274 
+275     def test_session_expiration(self):
+276         permanent = True
+277         app = flask.Flask(__name__)
+278         app.secret_key = 'testkey'
+279         @app.route('/')
+280         def index():
+281             flask.session['test'] = 42
+282             flask.session.permanent = permanent
+283             return ''
+284 
+285         @app.route('/test')
+286         def test():
+287             return text_type(flask.session.permanent)
+288 
+289         client = app.test_client()
+290         rv = client.get('/')
+291         self.assert_in('set-cookie', rv.headers)
+292         match = re.search(r'\bexpires=([^;]+)(?i)', rv.headers['set-cookie'])
+293         expires = parse_date(match.group())
+294         expected = datetime.utcnow() + app.permanent_session_lifetime
+295         self.assert_equal(expires.year, expected.year)
+296         self.assert_equal(expires.month, expected.month)
+297         self.assert_equal(expires.day, expected.day)
+298 
+299         rv = client.get('/test')
+300         self.assert_equal(rv.data, b'True')
+301 
+302         permanent = False
+303         rv = app.test_client().get('/')
+304         self.assert_in('set-cookie', rv.headers)
+305         match = re.search(r'\bexpires=([^;]+)', rv.headers['set-cookie'])
+306         self.assert_true(match is None)
+307 
+308     def test_session_stored_last(self):

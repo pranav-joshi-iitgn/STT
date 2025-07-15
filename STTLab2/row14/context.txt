@@ -1,0 +1,10 @@
+Before: 111, 112
+After: 112, 113, 114, 115
+Bug type : update test_appctx.py to use pytest 2.x
+Commit Message : Rewrite assertion methods
+File Path : tests/test_appctx.py
+Fixed Commit : 5da2c00419d09ce2d3488263036ffd14563fb05a
+Buggy Commit : dd6b2574c9d40c4777da71d576f6e5eea1712404
+URL : https://github.com/pallets/flask/commit/5da2c00419d09ce2d3488263036ffd14563fb05a
+DEV
+pytest was already in use. It's imported here as a concequence of the actual change

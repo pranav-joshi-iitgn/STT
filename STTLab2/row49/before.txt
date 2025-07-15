@@ -1,0 +1,16 @@
+396         app.config['SESSION_REFRESH_EACH_REQUEST'] = False
+397         run_test(expect_header=False)
+398 
+399     def test_flashes(self):
+400         app = flask.Flask(__name__)
+401         app.secret_key = 'testkey'
+402 
+403         with app.test_request_context():
+404             self.assert_false(flask.session.modified)
+405             flask.flash('Zap')
+406             flask.session.modified = False
+407             flask.flash('Zip')
+408             self.assert_true(flask.session.modified)
+409             self.assert_equal(list(flask.get_flashed_messages()), ['Zap', 'Zip'])
+410 
+411     def test_extended_flashing(self):
